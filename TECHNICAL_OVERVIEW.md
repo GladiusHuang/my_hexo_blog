@@ -78,15 +78,14 @@ D:\blog\my_blog
 │   ├── links
 │   │   └── index.md
 │   ├── 404.md
-│   └── img
+│   └── images
 │       ├── avatar.jpg
-│       └── background.png
+│       └── background.jpg
 ├── themes
 │   └── hsad
 │       └── source
-│           └── images
-│               ├── avatar.jpg
-│               └── background.jpg
+│           ├── css
+│           └── js
 ├── public
 ├── node_modules
 └── .github
@@ -95,8 +94,8 @@ D:\blog\my_blog
 
 关键理解：
 
-- `source` 是主要内容目录。
-- `themes/hsad` 是当前主题源码目录，主页左侧栏图片也从该主题目录读取。
+- `source` 是主要内容目录，文章、页面和个人站点图片都放在这里。
+- `themes/hsad` 是当前主题源码目录，只保留主题模板、样式和脚本。
 - `public` 是 Hexo 构建产物，不是主要编辑对象。
 - `node_modules` 是依赖安装目录，不应手动修改。
 - `db.json` 是 Hexo 缓存文件。
@@ -160,8 +159,8 @@ D:\blog\my_blog\themes\hsad\_config.yml
 
 - `avatar: /images/avatar.jpg`
 - `sidebar_background: /images/background.jpg`
-- `brand_name: 我的博客`
-- `brand_subtitle: 黄奕涵的技术与生活记录`
+- `brand_name: 黄奕涵的博客`
+- `brand_subtitle: 记录生活和一点随想`
 - `sidebar_note: “远离颠倒梦想，究竟涅槃。”`
 - 菜单包含：首页、归档、分类、标签、友链、关于
 - 社交链接包含：GitHub、Gitee、哔哩哔哩
@@ -201,37 +200,30 @@ hello-world.md
 站点级图片资源：
 
 ```text
-D:\blog\my_blog\source\img
+D:\blog\my_blog\source\images
 ```
 
 当前站点级图片：
 
 ```text
 avatar.jpg
-background.png
+background.jpg
 ```
 
 这些图片构建后会出现在：
 
 ```text
-D:\blog\my_blog\public\img
+D:\blog\my_blog\public\images
 ```
 
-注意：当前主页左侧栏不再读取 `/img/...`，而是读取主题目录生成出的 `/images/...`。
-
-当前主题左侧栏使用的头像和背景图来自主题目录：
-
-```text
-D:\blog\my_blog\themes\hsad\source\images\avatar.jpg
-D:\blog\my_blog\themes\hsad\source\images\background.jpg
-```
-
-构建后对应网页路径是：
+主题配置中引用的网页路径是：
 
 ```text
 /images/avatar.jpg
 /images/background.jpg
 ```
+
+注意：个人图片不再放在 `themes/hsad/source/images`。主题目录只放主题本身的模板、CSS 和 JS。
 
 ## 8. 构建关系
 
@@ -242,8 +234,7 @@ flowchart TD
   Theme["themes/hsad"]
   Posts["source/_posts/*.md"]
   Pages["source/about/categories/tags/links/404"]
-  SiteImages["source/img/*"]
-  ThemeImages["themes/hsad/source/images/*"]
+  SiteImages["source/images/*"]
   Hexo["Hexo 构建"]
   Public["public 静态站点"]
 
@@ -253,7 +244,6 @@ flowchart TD
   Posts --> Hexo
   Pages --> Hexo
   SiteImages --> Hexo
-  ThemeImages --> Hexo
   Hexo --> Public
 ```
 
@@ -354,8 +344,8 @@ Cloudflare 负责：
 - 主题来自 `watanabe-hsad/hexo-theme-hsad`。
 - hsad 主题需要 `hexo-render-pug`。
 - 文章放在 `source/_posts`。
-- 主页左侧栏头像和背景图放在 `themes/hsad/source/images`。
-- 普通站点图片仍可放在 `source/img`。
+- 主页左侧栏头像和背景图放在 `source/images`。
+- 主题目录 `themes/hsad` 只保留主题模板、CSS 和 JS。
 - 构建输出是 `public`。
 - `public` 和 `node_modules` 都不是主要手写目录。
 - 部署靠 GitHub 推送触发 Netlify。

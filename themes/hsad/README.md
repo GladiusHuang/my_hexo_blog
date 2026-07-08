@@ -118,7 +118,7 @@ prismjs:
 
 ```yml
 avatar: /images/avatar.jpg
-sidebar_background: /images/background.png
+sidebar_background: /images/background.jpg
 
 accent_color: '#496b8c'
 accent_soft: '#dce8f0'
@@ -425,7 +425,7 @@ print("hello")
 source/
 ├── images/
 │   ├── avatar.jpg
-│   └── background.png
+│   └── background.jpg
 └── favicon.ico
 ```
 
@@ -433,7 +433,7 @@ source/
 
 ```yml
 avatar: /images/avatar.jpg
-sidebar_background: /images/background.png
+sidebar_background: /images/background.jpg
 ```
 
 这样做的好处是：
