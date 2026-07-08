@@ -158,9 +158,10 @@ D:\blog\my_blog\themes\hsad\_config.yml
 - `sidebar_background: /img/background.png`
 - `brand_name: 我的博客`
 - `brand_subtitle: 黄奕涵的技术与生活记录`
-- `sidebar_note: 写技术、项目、学习，也写一些值得留下的日常。`
+- `sidebar_note: “远离颠倒梦想，究竟涅槃。”`
 - 菜单包含：首页、归档、分类、标签、友链、关于
 - 社交链接包含：GitHub、Gitee、哔哩哔哩
+- 页脚文案为：`事实上，时间会平等地对待每一个瞬间。`
 - 页脚版权协议为：`CC BY-NC-SA 3.0 CN`
 
 这个主题使用 Pug 模板，因此项目依赖中需要保留：

@@ -4,7 +4,7 @@ accent_color: '#496b8c'
 accent_soft: '#dce8f0'
 brand_name: 我的博客
 brand_subtitle: 黄奕涵的技术与生活记录
-sidebar_note: 写技术、项目、学习，也写一些值得留下的日常。
+sidebar_note: “远离颠倒梦想，究竟涅槃。”
 hero:
   title: ''
   kicker: ''
@@ -31,7 +31,7 @@ social:
   - name: 哔哩哔哩
     url: https://space.bilibili.com/47671989
 footer:
-  text: 写下想留下的，再让时间排好顺序。
+  text: 事实上，时间会平等地对待每一个瞬间。
   support:
     enable: false
     title: Your Sponsor
