@@ -83,6 +83,10 @@ D:\blog\my_blog
 │       └── background.png
 ├── themes
 │   └── hsad
+│       └── source
+│           └── images
+│               ├── avatar.jpg
+│               └── background.jpg
 ├── public
 ├── node_modules
 └── .github
@@ -92,7 +96,7 @@ D:\blog\my_blog
 关键理解：
 
 - `source` 是主要内容目录。
-- `themes/hsad` 是当前主题源码目录。
+- `themes/hsad` 是当前主题源码目录，主页左侧栏图片也从该主题目录读取。
 - `public` 是 Hexo 构建产物，不是主要编辑对象。
 - `node_modules` 是依赖安装目录，不应手动修改。
 - `db.json` 是 Hexo 缓存文件。
@@ -154,8 +158,8 @@ D:\blog\my_blog\themes\hsad\_config.yml
 
 当前主题配置重点：
 
-- `avatar: /img/avatar.jpg`
-- `sidebar_background: /img/background.png`
+- `avatar: /images/avatar.jpg`
+- `sidebar_background: /images/background.jpg`
 - `brand_name: 我的博客`
 - `brand_subtitle: 黄奕涵的技术与生活记录`
 - `sidebar_note: “远离颠倒梦想，究竟涅槃。”`
@@ -194,13 +198,13 @@ hello-world.md
 | `source/links/index.md` | 友链页 |
 | `source/404.md` | 404 页面 |
 
-图片资源：
+站点级图片资源：
 
 ```text
 D:\blog\my_blog\source\img
 ```
 
-当前图片：
+当前站点级图片：
 
 ```text
 avatar.jpg
@@ -213,6 +217,22 @@ background.png
 D:\blog\my_blog\public\img
 ```
 
+注意：当前主页左侧栏不再读取 `/img/...`，而是读取主题目录生成出的 `/images/...`。
+
+当前主题左侧栏使用的头像和背景图来自主题目录：
+
+```text
+D:\blog\my_blog\themes\hsad\source\images\avatar.jpg
+D:\blog\my_blog\themes\hsad\source\images\background.jpg
+```
+
+构建后对应网页路径是：
+
+```text
+/images/avatar.jpg
+/images/background.jpg
+```
+
 ## 8. 构建关系
 
 ```mermaid
@@ -222,7 +242,8 @@ flowchart TD
   Theme["themes/hsad"]
   Posts["source/_posts/*.md"]
   Pages["source/about/categories/tags/links/404"]
-  Images["source/img/*"]
+  SiteImages["source/img/*"]
+  ThemeImages["themes/hsad/source/images/*"]
   Hexo["Hexo 构建"]
   Public["public 静态站点"]
 
@@ -231,7 +252,8 @@ flowchart TD
   Theme --> Hexo
   Posts --> Hexo
   Pages --> Hexo
-  Images --> Hexo
+  SiteImages --> Hexo
+  ThemeImages --> Hexo
   Hexo --> Public
 ```
 
@@ -332,7 +354,8 @@ Cloudflare 负责：
 - 主题来自 `watanabe-hsad/hexo-theme-hsad`。
 - hsad 主题需要 `hexo-render-pug`。
 - 文章放在 `source/_posts`。
-- 图片资源放在 `source/img`。
+- 主页左侧栏头像和背景图放在 `themes/hsad/source/images`。
+- 普通站点图片仍可放在 `source/img`。
 - 构建输出是 `public`。
 - `public` 和 `node_modules` 都不是主要手写目录。
 - 部署靠 GitHub 推送触发 Netlify。
