@@ -348,6 +348,7 @@ Cloudflare 负责：
 - hsad 主题需要 `hexo-render-pug`。
 - 文章正文直属段落由主题 CSS 自动首行缩进，不需要在 Markdown 每段前手动敲空格。
 - 主题 CSS 链接带版本参数，避免浏览器继续使用旧缓存。
+- 文章图片不会自动生成“图 01”这类编号题注。
 - Markdown 里的单行换行通过 `marked.breaks: true` 在网页端保留。
 - 文章放在 `source/_posts`。
 - 主页左侧栏头像和背景图放在 `source/images`。

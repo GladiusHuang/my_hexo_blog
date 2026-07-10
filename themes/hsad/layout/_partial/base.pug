@@ -25,7 +25,7 @@ html(lang=config.language || 'zh-CN')
           #{accentSoft ? `--accent-soft: ${accentSoft};` : ''}
         }
     link(rel='stylesheet' href=`${url_for('/css/hsad-theme.css')}?v=20260711-indent`)
-    script(src=url_for('/js/hsad-theme.js') defer)
+    script(src=`${url_for('/js/hsad-theme.js')}?v=20260711-no-captions` defer)
   body(class=[is_home() ? 'view-home' : 'view-inner', is_post() ? 'view-post' : 'view-page'].join(' '))
     if is_post()
       .reading-progress(aria-hidden='true')

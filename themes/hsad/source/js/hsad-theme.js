@@ -218,30 +218,10 @@
     return meaningfulNodes.length === 1;
   };
 
-  const getCaptionText = (img) => {
-    const title = (img.getAttribute('title') || '').trim();
-    const alt = (img.getAttribute('alt') || '').trim();
-    const src = img.getAttribute('src') || '';
-    const basename = decodeURIComponent(src.split('/').pop() || '')
-      .replace(/\.[a-z0-9]+$/i, '')
-      .trim()
-      .toLowerCase();
-
-    const candidate = title || alt;
-    if (!candidate) return '';
-
-    const normalized = candidate.toLowerCase();
-    if (normalized === basename || normalized === `${basename}.png`) return '';
-
-    return candidate;
-  };
-
   const initImageCaptions = () => {
     const images = document.querySelectorAll('.article__content img');
 
     if (!images.length) return;
-
-    let figureIndex = 0;
 
     images.forEach((img) => {
       if (img.closest('figure.article-media')) return;
@@ -249,9 +229,6 @@
       const mediaNode = img.parentElement?.tagName === 'A' ? img.parentElement : img;
       if (!isStandaloneMedia(mediaNode)) return;
 
-      figureIndex += 1;
-
-      const captionText = getCaptionText(img);
       const figure = document.createElement('figure');
       figure.className = 'article-media';
 
@@ -274,23 +251,6 @@
         mediaNode.parentNode.insertBefore(figure, mediaNode);
         figure.appendChild(mediaNode);
       }
-
-      const caption = document.createElement('figcaption');
-      caption.className = 'article-media__caption';
-
-      const label = document.createElement('span');
-      label.className = 'article-media__label';
-      label.textContent = `图 ${String(figureIndex).padStart(2, '0')}`;
-      caption.appendChild(label);
-
-      if (captionText) {
-        const text = document.createElement('span');
-        text.className = 'article-media__text';
-        text.textContent = `· ${captionText}`;
-        caption.appendChild(text);
-      }
-
-      figure.appendChild(caption);
     });
   };
 
