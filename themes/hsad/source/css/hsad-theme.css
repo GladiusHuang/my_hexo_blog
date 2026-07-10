@@ -650,6 +650,10 @@ img {
   text-indent: 0;
 }
 
+.article--page .article__content > p {
+  text-indent: 0 !important;
+}
+
 .article__content h1,
 .article__content h2,
 .article__content h3,
