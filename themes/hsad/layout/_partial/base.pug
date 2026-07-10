@@ -1,5 +1,5 @@
 - var siteTitle = theme.brand_name || config.title || 'Blog'
-- var currentTitle = page.title ? `${page.title} | ${siteTitle}` : siteTitle
+- var currentTitle = is_post() && page.title ? page.title : (page.title ? `${page.title} | ${siteTitle}` : siteTitle)
 - var currentDescription = page.description || config.description || config.subtitle || siteTitle
 - var licenseName = (theme.footer && theme.footer.license_name) || theme.license_name
 - var licenseUrl = (theme.footer && theme.footer.license_url) || theme.license_url
