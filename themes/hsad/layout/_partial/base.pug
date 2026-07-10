@@ -6,6 +6,9 @@
 - var accentColor = theme.accent_color
 - var accentSoft = theme.accent_soft
 - var accentStrong = accentColor ? `color-mix(in srgb, ${accentColor} 62%, #223142)` : ''
+- var shareTitle = page.title || siteTitle
+- var shareImage = page.cover ? full_url_for(page.cover) : ''
+- var shareUrl = page.path ? full_url_for(page.path) : full_url_for('/')
 doctype html
 html(lang=config.language || 'zh-CN')
   head
@@ -15,6 +18,14 @@ html(lang=config.language || 'zh-CN')
     meta(name='theme-color' content=theme.accent_color || '#5b7c99')
     meta(name='description' content=currentDescription)
     meta(name='author' content=config.author || siteTitle)
+    meta(property='og:type' content=is_post() ? 'article' : 'website')
+    meta(property='og:title' content=shareTitle)
+    meta(property='og:url' content=shareUrl)
+    if shareImage
+      meta(property='og:image' content=shareImage)
+      meta(name='twitter:card' content='summary_large_image')
+      meta(name='twitter:title' content=shareTitle)
+      meta(name='twitter:image' content=shareImage)
     != meta_generator()
     title= currentTitle
     if accentColor || accentSoft
