@@ -636,6 +636,16 @@ img {
   margin: 1.12rem 0;
 }
 
+.article__content p {
+  text-indent: 2em;
+}
+
+.article__content li p,
+.article__content blockquote p,
+.article__content figure p {
+  text-indent: 0;
+}
+
 .article__content h1,
 .article__content h2,
 .article__content h3,
