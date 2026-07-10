@@ -636,8 +636,12 @@ img {
   margin: 1.12rem 0;
 }
 
-.article__content p {
-  text-indent: 2em;
+.article__content > p {
+  text-indent: 2em !important;
+}
+
+.article__content > p + p {
+  margin-top: 1.45rem;
 }
 
 .article__content li p,
