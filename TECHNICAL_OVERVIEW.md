@@ -29,7 +29,7 @@ flowchart LR
 | 技术/平台 | 作用 |
 | --- | --- |
 | Hexo | 静态博客生成框架，把 Markdown、配置和主题模板构建成 HTML/CSS/JS |
-| hsad Theme | 当前使用的 Hexo 主题，提供左侧视觉侧栏、文章列表、归档、分类、标签、友链、关于页等页面样式 |
+| hsad Theme | 当前使用的 Hexo 主题，提供左侧视觉侧栏、文章列表、归档、分类、友链、关于页等页面样式 |
 | Markdown | 博客文章和页面内容的主要写作格式 |
 | Pug Renderer | `hexo-render-pug`，用于渲染 hsad 主题中的 `.pug` 模板 |
 | Git | 本地版本管理 |
@@ -72,8 +72,6 @@ D:\blog\my_blog
 │   ├── about
 │   │   └── index.md
 │   ├── categories
-│   │   └── index.md
-│   ├── tags
 │   │   └── index.md
 │   ├── links
 │   │   └── index.md
@@ -165,7 +163,8 @@ D:\blog\my_blog\themes\hsad\_config.yml
 - `brand_name: 黄奕涵的博客`
 - `brand_subtitle: 记录生活和一点随想`
 - `sidebar_note: “远离颠倒梦想，究竟涅槃。”`
-- 菜单包含：首页、归档、分类、标签、友链、关于
+- 菜单包含：首页、归档、分类、友链、关于
+- 标签功能暂时隐藏：侧边栏不显示标签入口，`source/tags/index.md` 已删除。
 - 社交链接包含：GitHub、Gitee、哔哩哔哩
 - 页脚文案为：`事实上，时间会平等地对待每一个瞬间。`
 - 页脚版权协议为：`CC BY-NC-SA 3.0 CN`
@@ -196,7 +195,6 @@ D:\blog\my_blog\source\_posts
 | --- | --- |
 | `source/about/index.md` | 关于页 |
 | `source/categories/index.md` | 分类页 |
-| `source/tags/index.md` | 标签页 |
 | `source/links/index.md` | 友链页 |
 | `source/404.md` | 404 页面 |
 
@@ -236,7 +234,7 @@ flowchart TD
   ThemeConfig["themes/hsad/_config.yml"]
   Theme["themes/hsad"]
   Posts["source/_posts/*.md"]
-  Pages["source/about/categories/tags/links/404"]
+  Pages["source/about/categories/links/404"]
   SiteImages["source/images/*"]
   Hexo["Hexo 构建"]
   Public["public 静态站点"]

@@ -17,8 +17,6 @@ menu:
     path: /archives/
   - name: 分类
     path: /categories/
-  - name: 标签
-    path: /tags/
   - name: 友链
     path: /links/
   - name: 关于
