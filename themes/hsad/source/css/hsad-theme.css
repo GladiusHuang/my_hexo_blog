@@ -636,11 +636,11 @@ img {
   margin: 1.12rem 0;
 }
 
-.article__content > p {
+.view-post .article__content > p {
   text-indent: 2em !important;
 }
 
-.article__content > p + p {
+.view-post .article__content > p + p {
   margin-top: 1.45rem;
 }
 
@@ -650,6 +650,7 @@ img {
   text-indent: 0;
 }
 
+.view-page .article__content > p,
 .article--page .article__content > p {
   text-indent: 0 !important;
 }

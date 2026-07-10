@@ -24,7 +24,7 @@ html(lang=config.language || 'zh-CN')
           #{accentStrong ? `--accent-strong: ${accentStrong};` : ''}
           #{accentSoft ? `--accent-soft: ${accentSoft};` : ''}
         }
-    link(rel='stylesheet' href=`${url_for('/css/hsad-theme.css')}?v=20260711-indent`)
+    link(rel='stylesheet' href=`${url_for('/css/hsad-theme.css')}?v=20260711-post-only-indent`)
     script(src=`${url_for('/js/hsad-theme.js')}?v=20260711-no-captions` defer)
   body(class=[is_home() ? 'view-home' : 'view-inner', is_post() ? 'view-post' : 'view-page'].join(' '))
     if is_post()
